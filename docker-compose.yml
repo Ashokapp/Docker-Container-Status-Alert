@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4590:4590
+    volumes:
+      - ./:/app
+    restart: on-failure
+    networks:
+      - email_network
+
+networks:
+ email_network:
+  driver: 'bridge'
